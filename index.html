@@ -58,17 +58,14 @@ help.innerHTML = "操作方法: マウスで視点変更 (<a href=https://github
 </a-scene>
 
 <script type="module">
-let t = 0;
-const ox = 30;
-const oy = 0;
-const oz = -2;
+const ot = new Date().getTime();
 const f = () => {
-  t++;
-  const th = t / 300 + Math.PI / 2 * 2.5;
+  const t = new Date().getTime() - ot;
+  const th = t / 3000 + Math.PI / 2 * 2.5;
   const pos = {
-    x: ox,
-    y: Math.sin(th) * 10 + oy,
-    z: Math.cos(th) * 10 + oz,
+    x: 30,
+    y: Math.sin(th) * 10 + 0,
+    z: Math.cos(th) * 10 - 2,
   };
   cameraRig.setAttribute("position", pos);
   requestAnimationFrame(f);
