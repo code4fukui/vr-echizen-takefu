@@ -35,6 +35,7 @@ help.innerHTML = "操作方法: カーソルで移動、マウスで視点変更
     <!--<a-asset-item id="arrow-asset" src="./arrow.glb"></a-asset-item>-->
     <!--<a-asset-item id="cake-asset" src="./kono-guide.glb"></a-asset-item>-->
   </a-assets>
+<!--  <a-sky src="./vr-echizen-takefu.jpg" rotation="0 180 0"></a-sky>-->
   <a-entity id="base" gltf-model="#base-asset" position="0 0 0" scale=".1 .1 .1"></a-entity>
   <!--
   <a-entity id="arrow" gltf-model="#arrow-asset" position="-7 20 -45" scale="2 2 2" rotation="0 0 180"
@@ -56,25 +57,6 @@ help.innerHTML = "操作方法: カーソルで移動、マウスで視点変更
     <a-entity oculus-touch-controls="hand:right" teleport-controls="button:trigger; collisionEntities:.collidable; cameraRig:#cameraRig; teleportOrigin:#head;"></a-entity>
   </a-entity>
 </a-scene>
-
-<script type="module">
-let t = 0;
-const ox = 30;
-const oy = 0;
-const oz = -2;
-const f = () => {
-  t++;
-  const th = t / 300 + Math.PI / 2 * 2.5;
-  const pos = {
-    x: ox,
-    y: Math.sin(th) * 10 + oy,
-    z: Math.cos(th) * 10 + oz,
-  };
-  cameraRig.setAttribute("position", pos);
-  requestAnimationFrame(f);
-};
-f();
-</script>
 
 </body>
 </html>
